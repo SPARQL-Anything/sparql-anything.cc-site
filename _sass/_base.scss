@@ -42,6 +42,9 @@ p {
     margin-bottom: 20px;
 }
 
+pre {
+	text-align: left;
+}
 .bg-primary {
     background-color: $theme-primary;
 }
@@ -52,7 +55,7 @@ p {
 }
 
 .text-faded {
-    color: rgba(white, .7);
+    color: rgba(white, .9);
 }
 
 section {
