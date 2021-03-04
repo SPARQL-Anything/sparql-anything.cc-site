@@ -27,8 +27,23 @@
                                 JSON
                             </div>
                             <div class="project-name">
-                                Query description
-								<pre></pre>
+Select the TV series starring "Courteney Cox":
+<pre>
+PREFIX fx: &lt;http://sparql.xyz/facade-x/ns/&gt;
+PREFIX xyz: &lt;http://sparql.xyz/facade-x/data/&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+
+SELECT ?seriesName
+WHERE {
+
+    SERVICE &lt;x-facade:https://raw.githubusercontent.com/sparql-anything/sparql.anything/
+main/examples/example1.json&gt; {
+        ?tvSeries xyz:name ?seriesName .
+        ?tvSeries xyz:stars ?star .
+        ?star ?li "Courteney Cox" .
+    }
+
+}</pre>
                             </div>
                         </div>
                     </div>
@@ -43,7 +58,7 @@
                                 XML
                             </div>
                             <div class="project-name">
-                                Project Name
+                                Example
                             </div>
                         </div>
                     </div>
@@ -58,7 +73,7 @@
                                 HTML
                             </div>
                             <div class="project-name">
-                                Project Name
+                                Example
                             </div>
                         </div>
                     </div>
@@ -73,7 +88,7 @@
                                 Binary
                             </div>
                             <div class="project-name">
-                                Project Name
+                                Example
                             </div>
                         </div>
                     </div>
@@ -88,7 +103,7 @@
                                 Metadata
                             </div>
                             <div class="project-name">
-                                Project Name
+                                Example
                             </div>
                         </div>
                     </div>
