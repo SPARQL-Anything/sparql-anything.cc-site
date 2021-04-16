@@ -10,8 +10,25 @@
                                 CSV
                             </div>
                             <div class="project-name">
+Artists from the Tate Gallery open data. 
 <pre>
-
+PREFIX xyz: &lt;http://sparql.xyz/facade-x/data/&gt;
+PREFIX schema: &lt;http://schema.org/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+CONSTRUCT {
+  ?artist a schema:Person;
+  	rdfs:label ?name;
+	schema:birthDate ?yearOfBirth;
+	schema:deathDate ?yearOfBirth;
+	schema:url ?url .
+} WHERE {
+  SERVICE &lt;x-sparql-anything:csv.headers=true,location=./collection/artist_data.csv&gt; {
+    []  xyz:id ?id;
+	    xyz:name ?name; 
+  		xyz:placeOfBirth ?placeOfBirth;   
+  		xyz:placeOfDeath ?placeOfDeath;   
+		xyz:url ?url }
+  BIND (IRI(CONCAT(STR(tate:), "artist-", ?id )) AS ?artist) . }
 </pre>
                             </div>
                         </div>
@@ -35,7 +52,6 @@ PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 
 SELECT ?seriesName
 WHERE {
-
     SERVICE &lt;x-facade:https://raw.githubusercontent.com/sparql-anything/sparql.anything/
 main/examples/example1.json&gt; {
         ?tvSeries xyz:name ?seriesName .
@@ -51,19 +67,39 @@ main/examples/example1.json&gt; {
             </div>
             <div class="col-lg-4 col-sm-6">
                 <a href="#" class="portfolio-box">
-                    <img src="img/portfolio/xml.png" class="img-responsive" alt="">
+                    <img src="img/portfolio/html.png" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
                                 XML
                             </div>
                             <div class="project-name">
-                                Example
+Extract the list of artists from the Web page
+<pre>
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix xhtml: &lt;http://www.w3.org/1999/xhtml#&gt;
+
+SELECT ?artistUrl ?artistNickname WHERE {
+ SERVICE 
+ &lt;x-sparql-anything:media-type=text/html,html.selector=#az-group,location=https://imma.ie/artists/&gt; 
+ {
+	[] xhtml:data-image [] ;
+		rdf:_1 [
+		   xhtml:href ?artistUrl ;
+		   ?i [ a xhtml:span ; rdf:_1 ?artistNickname ]
+		].
+ } 
+}
+
+
+
+</pre>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
+<!--			
             <div class="col-lg-4 col-sm-6">
                 <a href="#" class="portfolio-box">
                     <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
@@ -109,6 +145,7 @@ main/examples/example1.json&gt; {
                     </div>
                 </a>
             </div>
+-->
         </div>
     </div>
 </section>
