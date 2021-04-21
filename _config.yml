@@ -1,6 +1,5 @@
 # Site settings
-title: SPARQL.Anything
-email: enricodaga@gmail.com
+title: "SPARQL Anything"
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://sparql-anything.cc/" # the base hostname & protocol for your site
