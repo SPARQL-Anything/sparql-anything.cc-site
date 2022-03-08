@@ -1,42 +1,27 @@
 <section id="services">
+	
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
+			<div class="col-lg-2"></div>
+            <div class="justify-content-md-center justify-content-lg-center col-lg-8 text-center">
                 <h2 class="section-heading">Features</h2>
                 <hr class="primary">
+				<ul dir="auto" class="text-left center">
+				<li>Query files in plain SPARQL 1.1, via the <code>SERVICE &lt;x-sparql-anything:&gt;</code> (see <a href="https://sparql-anything.readthedocs.io/en/stable/#configuration">options</a>)</li>
+				<li>Build knowledge graphs with <code>CONSTRUCT</code> queries, in plain SPARQL 1.1</li>
+				<li><a href="https://sparql-anything.readthedocs.io/en/stable/#supported-formats">Supported formats</a>: XML, JSON, CSV, HTML, Excel, Text, Binary, EXIF, File System, Zip/Tar, Markdown, YAML, Bibtex, DOCx (see <a href="https://sparql-anything.readthedocs.io/en/stable/#format-specific-options">format-specific options</a>)</li>
+				<li>Transforms <a href="https://sparql-anything.readthedocs.io/en/stable/#general-purpose-options">files, inline content, or the output of an external command</a></li>
+				<li>Full fledged <a href="https://sparql-anything.readthedocs.io/en/stable/#http-options">HTTP client</a> to query Web APIs (headers, authentication, all methods supported)</li>
+				<li><a href="https://sparql-anything.readthedocs.io/en/stable/#functions-and-magic-properties">Functions library</a> for RDF sequences, strings, hashes, easy entity building, ...</li>
+				<li>Combine multiple SERVICE clauses into complex data integration queries (thanks to SPARQL)</li>
+				<li>Query templates (using <a href="https://sparql-anything.readthedocs.io/en/stable/#query-templates-and-variable-bindings">BASIL variables</a>)</li>
+				<li>Save and reuse SPARQL <code>Results Sets files</code> as input for <a href="https://sparql-anything.readthedocs.io/en/stable/#query-templates-and-variable-bindings">parametric queries</a></li>
+				<li>Slice large CSV files with an iterator-like execution style (soon <a href="https://github.com/SPARQL-Anything/sparql.anything/issues/202">JSON</a> and <a href="https://github.com/SPARQL-Anything/sparql.anything/issues/203">XML</a>)</li>
+				<li>Supports an <a href="https://sparql-anything.readthedocs.io/en/stable/#general-purpose-options">on-disk option</a> (with Apache Jena TDB2)</li>
+				<li>Command line and server (via Jena Fuseki)</li>
+				</ul>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-file-code wow bounceIn text-primary"></i>
-                    <h3>Supported formats</h3>
-                    <p class="text-muted">CSV, XML, JSON, HTML, YAML, Markdown, Bibtex, Zip, Tar, DOCx, XSLx, TXT, HTTP, Binary, Images (PNG, JPG, TIF,...) + EXIF</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-terminal wow bounceIn text-primary"></i>
-                    <h3>CLI</h3>
-                    <p class="text-muted">Command line interface</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-code-branch wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                    <h3>Pipelines</h3>
-                    <p class="text-muted">Use SPARQL Results Sets as input for parametric queries. Decompose your data integration workflow!</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Plain SPARQL 1.1</h3>
-                    <p class="text-muted">Made by SPARQL lovers, no need to learn a new language. </p>
-                </div>
-            </div>
-        </div>
-    </div>
+	
 </section>
