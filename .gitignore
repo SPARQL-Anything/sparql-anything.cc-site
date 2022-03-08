@@ -1,2 +1,7 @@
-
+_site/
+.sass-cache/
+**/*.xcf
+*.xcf
 .DS_Store
+.gitignore
+.jekyll-cache/
