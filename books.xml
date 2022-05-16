@@ -1,4 +1,8 @@
-<books>
+<items>
+    <magazine issn="0959-9630">
+	<title>Amiga Computing</title>
+        <publish_date>1997-10-01</publish_date>
+    </magazine>
     <book isbn="978-3-12-148410-0">
         <author>Gambardella, Matthew</author>
         <title>XML Developer's Guide</title>
@@ -28,5 +32,5 @@
             society in England, the young survivors lay the
             foundation for a new society.</description>
     </book>
-</books>
+</items>
 
