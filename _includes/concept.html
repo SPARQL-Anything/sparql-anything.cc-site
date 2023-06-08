@@ -1,0 +1,32 @@
+<section class="bg-primary" id="concept">
+    <div class="container">
+		
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Uplift, then transform!</h2>
+                <hr class="light">
+                <p class="text-faded">SPARQL Anything uses a unique data schema called <strong>Facade-X</strong>. 
+					<br/>Facade-X is a simplistic meta-model that allows transformers to produce RDF from diverse data sources without the need of a domain vocabulary. 
+					<br/>This is a generic example of a Facade-X data object:
+<pre style="">
+@prefix fx: &lt;http://sparql.xyz/facade-x/ns/&gt; .
+@prefix xyz: &lt;http://sparql.xyz/facade-x/data/&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+
+[] a fx:Root ;
+	rdf:_1 [
+    	xyz:someKey "some value" ;
+    	rdf:_1 "another value with unspecified key" 
+	];
+    rdf:_2 [
+        rdf:type xyz:SomeType ;
+        rdf:_1 "another value" 
+    ] 
+] .
+</pre>
+</p>
+                <!-- <a href="http://github.com/sparql-anything/sparql.anything" class="btn btn-default btn-xl">I want to know more</a> -->
+            </div>
+        </div>
+    </div>
+</section>
