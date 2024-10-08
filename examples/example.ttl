@@ -1,0 +1,16 @@
+@prefix ex: <http://exmaple.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+ex:Luigi a foaf:Person ;
+	foaf:firstName "Luigi" ;
+	foaf:currentProject ex:PizzaProject ;
+	foaf:member ex:LuigisPizza ;
+	foaf:knows ex:Mario .
+
+ex:LuigisPizza foaf:name "Luigi's Pizza" .
+
+ex:Mario a foaf:Person ;
+	foaf:firstName "Mario" .
+
+ex:PizzaProject a foaf:Project ;
+	foaf:name "Pizza Project" .
