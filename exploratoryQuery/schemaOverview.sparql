@@ -1,0 +1,16 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX afn: <http://jena.apache.org/ARQ/function#>
+PREFIX fx:   <http://sparql.xyz/facade-x/ns/>
+
+SELECT DISTINCT ?subject_class (GROUP_CONCAT(DISTINCT ?property_object_type) AS ?property_type_list)
+
+WHERE {
+	?subject ?property ?object .
+  OPTIONAL {?subject a ?class .}
+	OPTIONAL {?object a ?object_type .}
+  BIND(IF(BOUND(?class),afn:localname(?class),"no_type") AS ?subject_class)
+  BIND(IF(BOUND(?object_type),afn:localname(?object_type),IF(?property = rdf:type,"class","no_type")) AS ?object_class)
+  BIND(IF(fx:isContainerMembershipProperty(?property), "num",  afn:localname(?property)) AS ?property1)
+	BIND(CONCAT(?property1, ":", ?object_class) AS ?property_object_type)
+}
+GROUP BY ?subject_class
