@@ -6,7 +6,7 @@
     <dl class="terms">
       <div>
         <dt>Containers</dt>
-        <dd>Each structure in the source becomes a container, a blank node: a table and its rows, a JSON object or array, an XML element. The outermost one is typed <code>fx:root</code>.</dd>
+        <dd>Each structure in the source becomes a container, a blank node: a table and its rows, a JSON object or array, an XML element. The outermost one is typed <code>fx:Root</code>.</dd>
       </div>
       <div>
         <dt>Slots</dt>
@@ -14,7 +14,7 @@
       </div>
       <div>
         <dt>Values</dt>
-        <dd>The content at the leaves becomes RDF literals, keeping the text as it appears in the source.</dd>
+        <dd>The content at the leaves becomes RDF literals, keeping the text as it appears in the source. Where the format says what a value is, it gets a datatype or a language tag: a JSON number becomes <code>"1815"^^xsd:decimal</code>, XML text under <code>xml:lang="en"</code> becomes <code>"Ada"@en</code>.</dd>
       </div>
       <div>
         <dt>Types</dt>
@@ -24,7 +24,9 @@
 
     <pre class="prefixes"><code data-lang="turtle">PREFIX fx:  &lt;http://sparql.xyz/facade-x/ns/&gt;
 PREFIX xyz: &lt;http://sparql.xyz/facade-x/data/&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</code></pre>
+PREFIX fxe: &lt;http://sparql.xyz/facade-x/engine/&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
 
     <p>The <a href="{{ site.spec.url }}primer.html">Façade-X primer</a> walks through the model with examples. The <a href="{{ site.spec.url }}metamodel.html">metamodel specification</a> defines it formally, and the <a href="{{ site.spec.url }}mappings.html">format mappings</a> say how each format is represented.</p>
   </div>

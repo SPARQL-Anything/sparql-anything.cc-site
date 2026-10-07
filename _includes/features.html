@@ -7,8 +7,9 @@
       <div>
         <h3>Querying</h3>
         <ul>
-          <li>Plain SPARQL 1.1. Point a <code>SERVICE &lt;x-sparql-anything:…&gt;</code> clause at a resource and set <a href="{{ cfg }}">options</a> in the IRI or as triples.</li>
+          <li>Plain SPARQL 1.1. Point a <code>SERVICE &lt;x-sparql-anything:…&gt;</code> clause at a resource and set <a href="{{ cfg }}">options</a> in the IRI or with <code>fxe:properties</code>.</li>
           <li>Build knowledge graphs with <code>CONSTRUCT</code>, or get tables with <code>SELECT</code>. Output RDF, RDF-star or tabular results.</li>
+          <li>Output follows the <a href="{{ site.spec.url }}">Façade-X specification</a> {{ site.spec.version }}, including datatypes for JSON numbers and language tags from <code>xml:lang</code>.</li>
           <li>Join data from several sources in one query by combining <code>SERVICE</code> clauses.</li>
           <li>A <a href="{{ site.docs }}FUNCTIONS_AND_MAGIC_PROPERTIES/">function library</a> for container slots, strings, hashes and building entity IRIs.</li>
           <li>Query templates: run a query once for each row of a SPARQL result set file, or for values given on the <a href="{{ site.docs }}CLI/">command line</a>.</li>

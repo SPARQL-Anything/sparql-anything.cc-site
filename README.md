@@ -19,7 +19,7 @@ Most updates are data edits, no HTML needed:
 
 Page sections live in `_includes/` and are assembled in `_layouts/front.html`.
 
-The example output in the hero (`_includes/hero.html`) and in "Get started" (`_includes/start.html`) was produced with the release named in `_config.yml`. Re-run them when a release changes the Façade-X output.
+The example output in the hero (`_includes/hero.html`) and in "Get started" (`_includes/start.html`) was produced with the release named in `_config.yml` (currently 1.3.0). Re-run them when a release changes the Façade-X output.
 
 ## Example files
 

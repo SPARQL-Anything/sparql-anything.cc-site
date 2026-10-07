@@ -12,8 +12,9 @@
       </li>
       <li>
         <h3>Write a query</h3>
-        <p>Save this as <code>query.rq</code>, next to the <code>people.csv</code> file from the example above.</p>
-<pre><code data-lang="sparql">PREFIX xyz:    &lt;http://sparql.xyz/facade-x/data/&gt;
+        <p>Save this as <code>query.rq</code>, next to the <code>people.csv</code> file from the example above. Options go on <code>fxe:properties</code>, or in the <code>SERVICE</code> IRI as in the example at the top of the page.</p>
+<pre><code data-lang="sparql">PREFIX fxe:    &lt;http://sparql.xyz/facade-x/engine/&gt;
+PREFIX xyz:    &lt;http://sparql.xyz/facade-x/data/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
 CONSTRUCT {
@@ -21,7 +22,8 @@ CONSTRUCT {
     schema:name ?name ;
     schema:homeLocation ?city .
 } WHERE {
-  SERVICE &lt;x-sparql-anything:location=people.csv,csv.headers=true&gt; {
+  SERVICE &lt;x-sparql-anything:&gt; {
+    fxe:properties fxe:location "people.csv" ; fxe:csv.headers true .
     ?row xyz:id ?id ; xyz:name ?name ; xyz:city ?city .
   }
   BIND (IRI(CONCAT("http://example.org/person/", ?id)) AS ?person)

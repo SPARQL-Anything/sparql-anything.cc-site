@@ -27,7 +27,7 @@
         </div>
         <div class="demo-pane demo-out">
           <div class="pane-title">Façade-X view (RDF)</div>
-<pre><code data-lang="turtle">[ rdf:type  fx:root ;
+<pre><code data-lang="turtle">[ rdf:type  fx:Root ;
   rdf:_1    [ xyz:id    "1" ;
               xyz:name  "Ada" ;
               xyz:city  "London" ] ;
@@ -48,21 +48,23 @@
           <div class="pane-title">people.json</div>
 <pre><code>{
   "people": [
-    { "name": "Ada",
+    { "name": "Ada", "born": 1815,
       "languages": ["English", "French"] },
-    { "name": "Grace",
+    { "name": "Grace", "born": 1906,
       "languages": ["English"] }
   ]
 }</code></pre>
         </div>
         <div class="demo-pane demo-out">
           <div class="pane-title">Façade-X view (RDF)</div>
-<pre><code data-lang="turtle">[ rdf:type    fx:root ;
+<pre><code data-lang="turtle">[ rdf:type    fx:Root ;
   xyz:people  [
     rdf:_1  [ xyz:name       "Ada" ;
+              xyz:born       "1815"^^xsd:decimal ;
               xyz:languages  [ rdf:_1 "English" ;
                                rdf:_2 "French" ] ] ;
     rdf:_2  [ xyz:name       "Grace" ;
+              xyz:born       "1906"^^xsd:decimal ;
               xyz:languages  [ rdf:_1 "English" ] ]
   ]
 ] .</code></pre>
@@ -77,20 +79,21 @@
       <div class="demo-panel" role="tabpanel" id="panel-xml" aria-labelledby="tab-xml">
         <div class="demo-pane">
           <div class="pane-title">people.xml</div>
-<pre><code>&lt;people&gt;
+<pre><code>&lt;people xml:lang="en"&gt;
   &lt;person id="1"&gt;Ada&lt;/person&gt;
   &lt;person id="2"&gt;Grace&lt;/person&gt;
 &lt;/people&gt;</code></pre>
         </div>
         <div class="demo-pane demo-out">
           <div class="pane-title">Façade-X view (RDF)</div>
-<pre><code data-lang="turtle">[ rdf:type  fx:root , xyz:people ;
+<pre><code data-lang="turtle">[ rdf:type  fx:Root , xyz:people ;
+  xml:lang  "en" ;
   rdf:_1    [ rdf:type  xyz:person ;
-              xyz:id    "1" ;
-              rdf:_1    "Ada" ] ;
+              xyz:id    "1"@en ;
+              rdf:_1    "Ada"@en ] ;
   rdf:_2    [ rdf:type  xyz:person ;
-              xyz:id    "2" ;
-              rdf:_1    "Grace" ]
+              xyz:id    "2"@en ;
+              rdf:_1    "Grace"@en ]
 ] .</code></pre>
         </div>
         <div class="demo-query">
@@ -100,7 +103,7 @@
         </div>
       </div>
 
-      <figcaption id="demo-caption">The same query over three formats, with the output of v{{ site.release.version }}. Each file becomes a <a href="#facade-x">Façade-X</a> graph of containers, slots and values, which you then reshape with SPARQL.</figcaption>
+      <figcaption id="demo-caption">The same query over three formats, with the output of v{{ site.release.version }}. JSON numbers keep their lexical form with an XSD type, and XML values carry their <code>xml:lang</code> tag. Each file becomes a <a href="#facade-x">Façade-X</a> graph of containers, slots and values, which you then reshape with SPARQL.</figcaption>
     </figure>
   </div>
 </section>
