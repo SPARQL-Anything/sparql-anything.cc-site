@@ -1,0 +1,31 @@
+<section id="facade-x" class="section section-alt">
+  <div class="wrap">
+    <h2>How Façade-X works</h2>
+    <p class="section-intro">Façade-X is the model SPARQL Anything uses to present every format in the same shape. It uses a small subset of RDF and no domain vocabulary, so the source content appears as it is. Your query then maps it to the ontology you need.</p>
+
+    <dl class="terms">
+      <div>
+        <dt>Containers</dt>
+        <dd>Each structure in the source becomes a container, a blank node: a table and its rows, a JSON object or array, an XML element. The outermost one is typed <code>fx:root</code>.</dd>
+      </div>
+      <div>
+        <dt>Slots</dt>
+        <dd>Containers hold slots. Named parts, such as column headers, object keys and attributes, become properties in the <code>xyz:</code> namespace. Ordered parts, such as rows, array items and child nodes, become <code>rdf:_1</code>, <code>rdf:_2</code> and so on.</dd>
+      </div>
+      <div>
+        <dt>Values</dt>
+        <dd>The content at the leaves becomes RDF literals, keeping the text as it appears in the source.</dd>
+      </div>
+      <div>
+        <dt>Types</dt>
+        <dd>Where the source gives a structure a name, such as an XML element or an HTML tag, the container gets that name as an <code>rdf:type</code>.</dd>
+      </div>
+    </dl>
+
+    <pre class="prefixes"><code data-lang="turtle">PREFIX fx:  &lt;http://sparql.xyz/facade-x/ns/&gt;
+PREFIX xyz: &lt;http://sparql.xyz/facade-x/data/&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</code></pre>
+
+    <p>The <a href="{{ site.spec.url }}primer.html">Façade-X primer</a> walks through the model with examples. The <a href="{{ site.spec.url }}metamodel.html">metamodel specification</a> defines it formally, and the <a href="{{ site.spec.url }}mappings.html">format mappings</a> say how each format is represented.</p>
+  </div>
+</section>
