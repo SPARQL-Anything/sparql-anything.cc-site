@@ -1,0 +1,27 @@
+- title: "A gentle introduction to SPARQL Anything"
+  url: "https://sparql-anything.readthedocs.io/stable/A_GENTLE_INTRODUCTION_TO_SPARQL_ANYTHING/"
+  text: "The Façade-X model, with basic transformations of JSON, CSV and XML."
+  tags: [JSON, CSV, XML]
+  extra:
+    label: "Video"
+    url: "https://www.dropbox.com/s/bc31v0klg68op0z/SPARQLAnythingTutorial-highres.mp4?dl=0"
+- title: "Open data from the Tate Gallery"
+  url: "https://github.com/SPARQL-Anything/showcase-tate"
+  text: "Uses the fx:anySlot function and chains several SERVICE clauses. Runs on the command line."
+  tags: [CSV, JSON]
+- title: "Artists and artworks from the IMMA museum website"
+  url: "https://github.com/SPARQL-Anything/showcase-imma"
+  text: "Builds a knowledge graph from HTML pages, with parametrised queries that take SPARQL result sets as input."
+  tags: [HTML]
+- title: "The Propbank dataset"
+  url: "https://github.com/SPARQL-Anything/showcase-propbank"
+  text: "An advanced XML transformation, including querying files inside a Zip archive."
+  tags: [XML, Zip]
+- title: "YAML annotations in Markdown headers"
+  url: "https://github.com/SPARQL-Anything/showcase-polifonia-ecosystem"
+  text: "Chains transformations: Markdown files, then their YAML front matter, then the annotations it contains."
+  tags: [Markdown, YAML]
+- title: "A music ontology from MusicXML files"
+  url: "https://github.com/SPARQL-Anything/showcase-musicxml"
+  text: "Derives note sequences, computes n-grams and populates a music notation ontology."
+  tags: [XML]

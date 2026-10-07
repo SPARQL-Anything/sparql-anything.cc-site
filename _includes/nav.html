@@ -1,40 +1,21 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">SPARQL Anything</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="page-scroll" href="#about">About</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#concept">Concept</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#features">Features</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#resources">Resources</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#use">Use</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#cite">Publications</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#main">
+      <img src="img/mark.png" alt="" width="32" height="32">
+      <span>SPARQL Anything</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#start">Get started</a></li>
+        <li><a href="#facade-x">Façade-X</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#tutorials">Tutorials</a></li>
+        <li><a href="#standard">Standard</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="{{ site.docs }}">Docs</a></li>
+        <li><a href="https://github.com/SPARQL-Anything/sparql.anything">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

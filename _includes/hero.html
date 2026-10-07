@@ -1,0 +1,106 @@
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>Query any file with SPARQL</h1>
+      <p class="lead">SPARQL Anything reads CSV, JSON, XML, spreadsheets, HTML, Markdown and other formats as RDF. You query them, and build knowledge graphs from them, with plain SPARQL&nbsp;1.1. There is no mapping language to learn and no conversion step.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#start">Get started</a>
+        <a class="btn" href="https://github.com/SPARQL-Anything/sparql.anything/releases/tag/v{{ site.release.version }}">Download v{{ site.release.version }}</a>
+        <a class="btn" href="{{ site.docs }}">Read the documentation</a>
+      </div>
+      <p class="release-line">Version {{ site.release.version }}, released {{ site.release.date }}. Java {{ site.release.java }} or later. Apache License 2.0.</p>
+    </div>
+
+    <figure class="demo" aria-labelledby="demo-caption">
+      <div class="demo-tabs" role="tablist" aria-label="Example source format">
+        <button role="tab" id="tab-csv" aria-controls="panel-csv" aria-selected="true">CSV</button>
+        <button role="tab" id="tab-json" aria-controls="panel-json" aria-selected="false" tabindex="-1">JSON</button>
+        <button role="tab" id="tab-xml" aria-controls="panel-xml" aria-selected="false" tabindex="-1">XML</button>
+      </div>
+
+      <div class="demo-panel" role="tabpanel" id="panel-csv" aria-labelledby="tab-csv">
+        <div class="demo-pane">
+          <div class="pane-title">people.csv</div>
+<pre><code>id,name,city
+1,Ada,London
+2,Grace,New York</code></pre>
+        </div>
+        <div class="demo-pane demo-out">
+          <div class="pane-title">Façade-X view (RDF)</div>
+<pre><code data-lang="turtle">[ rdf:type  fx:root ;
+  rdf:_1    [ xyz:id    "1" ;
+              xyz:name  "Ada" ;
+              xyz:city  "London" ] ;
+  rdf:_2    [ xyz:id    "2" ;
+              xyz:name  "Grace" ;
+              xyz:city  "New York" ]
+] .</code></pre>
+        </div>
+        <div class="demo-query">
+<pre><code data-lang="sparql">CONSTRUCT { ?s ?p ?o } WHERE {
+  SERVICE &lt;x-sparql-anything:location=people.csv,csv.headers=true&gt; { ?s ?p ?o }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-panel" role="tabpanel" id="panel-json" aria-labelledby="tab-json">
+        <div class="demo-pane">
+          <div class="pane-title">people.json</div>
+<pre><code>{
+  "people": [
+    { "name": "Ada",
+      "languages": ["English", "French"] },
+    { "name": "Grace",
+      "languages": ["English"] }
+  ]
+}</code></pre>
+        </div>
+        <div class="demo-pane demo-out">
+          <div class="pane-title">Façade-X view (RDF)</div>
+<pre><code data-lang="turtle">[ rdf:type    fx:root ;
+  xyz:people  [
+    rdf:_1  [ xyz:name       "Ada" ;
+              xyz:languages  [ rdf:_1 "English" ;
+                               rdf:_2 "French" ] ] ;
+    rdf:_2  [ xyz:name       "Grace" ;
+              xyz:languages  [ rdf:_1 "English" ] ]
+  ]
+] .</code></pre>
+        </div>
+        <div class="demo-query">
+<pre><code data-lang="sparql">CONSTRUCT { ?s ?p ?o } WHERE {
+  SERVICE &lt;x-sparql-anything:location=people.json&gt; { ?s ?p ?o }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-panel" role="tabpanel" id="panel-xml" aria-labelledby="tab-xml">
+        <div class="demo-pane">
+          <div class="pane-title">people.xml</div>
+<pre><code>&lt;people&gt;
+  &lt;person id="1"&gt;Ada&lt;/person&gt;
+  &lt;person id="2"&gt;Grace&lt;/person&gt;
+&lt;/people&gt;</code></pre>
+        </div>
+        <div class="demo-pane demo-out">
+          <div class="pane-title">Façade-X view (RDF)</div>
+<pre><code data-lang="turtle">[ rdf:type  fx:root , xyz:people ;
+  rdf:_1    [ rdf:type  xyz:person ;
+              xyz:id    "1" ;
+              rdf:_1    "Ada" ] ;
+  rdf:_2    [ rdf:type  xyz:person ;
+              xyz:id    "2" ;
+              rdf:_1    "Grace" ]
+] .</code></pre>
+        </div>
+        <div class="demo-query">
+<pre><code data-lang="sparql">CONSTRUCT { ?s ?p ?o } WHERE {
+  SERVICE &lt;x-sparql-anything:location=people.xml&gt; { ?s ?p ?o }
+}</code></pre>
+        </div>
+      </div>
+
+      <figcaption id="demo-caption">The same query over three formats, with the output of v{{ site.release.version }}. Each file becomes a <a href="#facade-x">Façade-X</a> graph of containers, slots and values, which you then reshape with SPARQL.</figcaption>
+    </figure>
+  </div>
+</section>

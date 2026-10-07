@@ -1,0 +1,116 @@
+# cite: true marks the reference publications shown under "How to cite".
+- key: asprino2023knowledge
+  cite: true
+  authors: "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
+  title: "Knowledge graph construction with a façade: a unified method to access heterogeneous data sources on the web"
+  venue: "ACM Transactions on Internet Technology 23(1), 1–31"
+  year: 2023
+  links:
+    - label: "DOI"
+      url: "https://doi.org/10.1145/3555312"
+  bibtex: |
+    @article{asprino2023knowledge,
+      title={Knowledge graph construction with a fa{\c{c}}ade: a unified method to access heterogeneous data sources on the web},
+      author={Asprino, Luigi and Daga, Enrico and Gangemi, Aldo and Mulholland, Paul},
+      journal={ACM Transactions on Internet Technology},
+      volume={23},
+      number={1},
+      pages={1--31},
+      year={2023},
+      publisher={ACM New York, NY},
+      doi={10.1145/3555312}
+    }
+
+- key: asprino2026tgdk
+  cite: true
+  authors: "Luigi Asprino, Enrico Daga"
+  title: "Towards a Theory of Façade-X Data Access: Satisfiability of SPARQL Basic Graph Patterns"
+  venue: "Transactions on Graph Data and Knowledge 4(2), 5:1–5:46"
+  year: 2026
+  links:
+    - label: "DOI"
+      url: "https://doi.org/10.4230/TGDK.4.2.5"
+    - label: "Code"
+      url: "https://github.com/SPARQL-Anything/fxbgp"
+  bibtex: |
+    @article{asprino2026tgdk,
+      author={Asprino, Luigi and Daga, Enrico},
+      title={{Towards a Theory of Fa{\c{c}}ade-X Data Access: Satisfiability of SPARQL Basic Graph Patterns}},
+      journal={Transactions on Graph Data and Knowledge},
+      volume={4},
+      number={2},
+      pages={5:1--5:46},
+      year={2026},
+      publisher={Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+      doi={10.4230/TGDK.4.2.5}
+    }
+
+- key: daga2021facade
+  cite: true
+  authors: "Enrico Daga, Luigi Asprino, Paul Mulholland, Aldo Gangemi"
+  title: "Facade-X: an opinionated approach to SPARQL Anything"
+  venue: "Studies on the Semantic Web 53, 58–73, IOS Press"
+  year: 2021
+  links:
+    - label: "arXiv"
+      url: "https://arxiv.org/abs/2106.02361"
+  bibtex: |
+    @article{daga2021facade,
+      title={Facade-X: an opinionated approach to SPARQL Anything},
+      author={Daga, Enrico and Asprino, Luigi and Mulholland, Paul and Gangemi, Aldo},
+      journal={Studies on the Semantic Web},
+      volume={53},
+      pages={58--73},
+      year={2021},
+      publisher={IOS Press}
+    }
+
+- key: ratta2024demo
+  authors: "Marco Ratta, Enrico Daga, Luigi Asprino"
+  title: "PySPARQL Anything Showcase"
+  venue: "ESWC 2024 Posters and Demos"
+  year: 2024
+  links:
+    - label: "PDF"
+      url: "https://2024.eswc-conferences.org/wp-content/uploads/2024/05/77770290.pdf"
+  bibtex: |
+    @inproceedings{ratta2024demo,
+      title={PySPARQL Anything Showcase},
+      author={Ratta, Marco and Daga, Enrico and Asprino, Luigi},
+      booktitle={ESWC 2024 Posters and Demos},
+      year={2024}
+    }
+
+- key: asprino2023streamlining
+  authors: "Luigi Asprino, Enrico Daga, Justin Dowdy, Paul Mulholland, Aldo Gangemi, Marco Ratta"
+  title: "Streamlining Knowledge Graph Construction with a façade: The SPARQL Anything project"
+  venue: "ENDORSE: The European Data Conference on Reference Data and Semantics"
+  year: 2023
+  links:
+    - label: "arXiv (technical architecture report)"
+      url: "https://arxiv.org/abs/2310.16700"
+  bibtex: |
+    @inproceedings{asprino2023streamlining,
+      title={Streamlining Knowledge Graph Construction with a fa{\c{c}}ade: The SPARQL Anything project},
+      author={Asprino, Luigi and Daga, Enrico and Dowdy, Justin and Mulholland, Paul and Gangemi, Aldo and Ratta, Marco},
+      booktitle={ENDORSE: The European Data Conference on Reference Data and Semantics},
+      year={2023},
+      publisher={Publications Office of the European Union}
+    }
+
+- key: ratta2022knowledge
+  authors: "Marco Ratta, Enrico Daga"
+  title: "Knowledge Graph Construction from MusicXML: an empirical investigation with SPARQL Anything"
+  venue: "Musical Heritage Knowledge Graphs Workshop (MHKG) at ISWC 2022"
+  year: 2022
+  links:
+    - label: "DOI"
+      url: "https://doi.org/10.5281/zenodo.7261671"
+  bibtex: |
+    @inproceedings{ratta2022knowledge,
+      title={Knowledge Graph Construction from MusicXML: an empirical investigation with SPARQL Anything},
+      author={Ratta, Marco and Daga, Enrico},
+      booktitle={Musical Heritage Knowledge Graphs Workshop (MHKG) at ISWC 2022},
+      year={2022},
+      doi={10.5281/zenodo.7261671}
+    }
