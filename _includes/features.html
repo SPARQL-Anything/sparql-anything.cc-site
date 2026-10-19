@@ -1,29 +1,53 @@
+{% assign cfg = site.docs | append: "Configuration/" %}
+<section id="features" class="section">
+  <div class="wrap">
+    <h2>Features</h2>
 
-<section id="features">
-
-	
-    <div class="container">
-        <div class="row">
-			<div class="col-lg-2"></div>
-            <div class="justify-content-md-center justify-content-lg-center col-lg-8 text-center">
-                <h2 class="section-heading">Features</h2><br><br><br>
-
-				<ul dir="auto" class="text-left center">
-				<li>Query files in plain SPARQL 1.1, via the <code>SERVICE &lt;x-sparql-anything:&gt;</code> (see <a href="https://sparql-anything.readthedocs.io/stable/#configuration">options</a>)</li>
-				<li>Build knowledge graphs with <code>CONSTRUCT</code> queries, in plain SPARQL 1.1</li>
-				<li><a href="https://sparql-anything.readthedocs.io/stable/#supported-formats">Supported formats</a>: XML, JSON, CSV, HTML, Excel, Text, Binary, EXIF, File System, Zip/Tar, Markdown, YAML, Bibtex, DOCx (see <a href="https://sparql-anything.readthedocs.io/en/stable/#format-specific-options">format-specific options</a>)</li>
-				<li>Transforms <a href="https://sparql-anything.readthedocs.io/stable/#general-purpose-options">files, inline content, or the output of an external command</a></li>
-				<li>Full fledged <a href="https://sparql-anything.readthedocs.io/stable/#http-options">HTTP client</a> to query Web APIs (headers, authentication, all methods supported)</li>
-				<li><a href="https://sparql-anything.readthedocs.io/en/stable/#functions-and-magic-properties">Functions library</a> for RDF sequences, strings, hashes, easy entity building, ...</li>
-				<li>Combine multiple SERVICE clauses into complex data integration queries (thanks to SPARQL)</li>
-				<li>Query templates (using <a href="https://sparql-anything.readthedocs.io/stable/#query-templates-and-variable-bindings">BASIL variables</a>)</li>
-				<li>Save and reuse SPARQL <code>Results Sets files</code> as input for <a href="https://sparql-anything.readthedocs.io/stable/#query-templates-and-variable-bindings">parametric queries</a></li>
-				<li>Slice large CSV files with an iterator-like execution style (soon <a href="https://github.com/SPARQL-Anything/sparql.anything/issues/202">JSON</a> and <a href="https://github.com/SPARQL-Anything/sparql.anything/issues/203">XML</a>)</li>
-				<li>Supports an <a href="https://sparql-anything.readthedocs.io/stable/#general-purpose-options">on-disk option</a> (with Apache Jena TDB2)</li>
-				<li>Command line and server (via Jena Fuseki)</li>
-				</ul>
-            </div>
-        </div>
+    <div class="feature-groups">
+      <div>
+        <h3>Querying</h3>
+        <ul>
+          <li>Plain SPARQL 1.1. Point a <code>SERVICE &lt;x-sparql-anything:…&gt;</code> clause at a resource and set <a href="{{ cfg }}">options</a> in the IRI or with <code>fxe:properties</code>.</li>
+          <li>Build knowledge graphs with <code>CONSTRUCT</code>, or get tables with <code>SELECT</code>. Output RDF, RDF-star or tabular results.</li>
+          <li>Output follows the <a href="{{ site.spec.url }}">Façade-X specification</a> {{ site.spec.version }}, including datatypes for JSON numbers and language tags from <code>xml:lang</code>.</li>
+          <li>Join data from several sources in one query by combining <code>SERVICE</code> clauses.</li>
+          <li>A <a href="{{ site.docs }}FUNCTIONS_AND_MAGIC_PROPERTIES/">function library</a> for container slots, strings, hashes and building entity IRIs.</li>
+          <li>Query templates: run a query once for each row of a SPARQL result set file, or for values given on the <a href="{{ site.docs }}CLI/">command line</a>.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Reaching data</h3>
+        <ul>
+          <li>Read a <a href="{{ cfg }}#location">file or URL</a>, <a href="{{ cfg }}#content">inline content</a>, or the <a href="{{ cfg }}#command">output of an external command</a>.</li>
+          <li>Call Web APIs with a full <a href="{{ cfg }}#http-options">HTTP client</a>: any method, custom headers, authentication.</li>
+          <li>Query files <a href="{{ cfg }}#from-archive">inside Zip and Tar archives</a>, and list the contents of folders.</li>
+          <li>Read from <a href="{{ cfg }}#s3">Amazon S3</a> buckets.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Large files</h3>
+        <ul>
+          <li><a href="{{ cfg }}#slice">Slicing</a> evaluates the query on one row, array item or element at a time, for CSV, JSON and XML.</li>
+          <li>An <a href="{{ cfg }}#ondisk">on-disk mode</a> keeps the Façade-X graph in Apache Jena TDB2 instead of memory.</li>
+          <li>The command line can stream <code>CONSTRUCT</code> output triple by triple.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Running it</h3>
+        <ul>
+          <li>Command-line tool and a Fuseki-based SPARQL server.</li>
+          <li>Java library, built on Apache Jena ARQ.</li>
+          <li><a href="https://github.com/SPARQL-Anything/PySPARQL-Anything">Python library</a> with results as RDFLib graphs, pandas data frames or NetworkX graphs.</li>
+        </ul>
+      </div>
     </div>
 
+    <h3 class="formats-title">Supported formats</h3>
+    <ul class="formats">
+      {% for f in site.data.formats %}
+      <li><a href="{{ site.docs }}{{ f.page }}">{{ f.name }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="formats-note">Image metadata (EXIF) is also supported. You can add formats through the <a href="https://github.com/SPARQL-Anything/plugin-example">extension mechanism</a>.</p>
+  </div>
 </section>

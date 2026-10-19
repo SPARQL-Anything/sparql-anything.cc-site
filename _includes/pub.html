@@ -1,0 +1,10 @@
+{% assign p = include.p %}
+<li class="pub">
+  <p class="pub-title">{{ p.title }}</p>
+  <p class="pub-meta">{{ p.authors }}. {{ p.venue }}, {{ p.year }}.
+    {% for l in p.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+  <details>
+    <summary>BibTeX</summary>
+    <pre><code>{{ p.bibtex | strip | escape }}</code></pre>
+  </details>
+</li>

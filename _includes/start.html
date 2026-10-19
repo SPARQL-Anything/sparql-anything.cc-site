@@ -1,0 +1,68 @@
+{% assign v = site.release.version %}
+<section id="start" class="section">
+  <div class="wrap">
+    <h2>Get started</h2>
+    <p class="section-intro">You need Java {{ site.release.java }} or later. This turns a CSV file into schema.org triples.</p>
+
+    <ol class="steps">
+      <li>
+        <h3>Download the command-line tool</h3>
+<pre class="wrap-lines"><code>curl -L -O https://github.com/SPARQL-Anything/sparql.anything/releases/download/v{{ v }}/sparql-anything-v{{ v }}.jar</code></pre>
+        <p>Or pick a jar from the <a href="https://github.com/SPARQL-Anything/sparql.anything/releases/tag/v{{ v }}">release page</a>. The <code>-geosparql</code> variants add GeoSPARQL support.</p>
+      </li>
+      <li>
+        <h3>Write a query</h3>
+        <p>Save this as <code>query.rq</code>, next to the <code>people.csv</code> file from the example above. Options go on <code>fxe:properties</code>, or in the <code>SERVICE</code> IRI as in the example at the top of the page.</p>
+<pre><code data-lang="sparql">PREFIX fxe:    &lt;http://sparql.xyz/facade-x/engine/&gt;
+PREFIX xyz:    &lt;http://sparql.xyz/facade-x/data/&gt;
+PREFIX schema: &lt;https://schema.org/&gt;
+
+CONSTRUCT {
+  ?person a schema:Person ;
+    schema:name ?name ;
+    schema:homeLocation ?city .
+} WHERE {
+  SERVICE &lt;x-sparql-anything:&gt; {
+    fxe:properties fxe:location "people.csv" ; fxe:csv.headers true .
+    ?row xyz:id ?id ; xyz:name ?name ; xyz:city ?city .
+  }
+  BIND (IRI(CONCAT("http://example.org/person/", ?id)) AS ?person)
+}</code></pre>
+      </li>
+      <li>
+        <h3>Run it</h3>
+<pre><code>java -jar sparql-anything-v{{ v }}.jar -q query.rq</code></pre>
+<pre class="output"><code data-lang="turtle">&lt;http://example.org/person/1&gt;
+        a                    schema:Person ;
+        schema:homeLocation  "London" ;
+        schema:name          "Ada" .
+
+&lt;http://example.org/person/2&gt;
+        a                    schema:Person ;
+        schema:homeLocation  "New York" ;
+        schema:name          "Grace" .</code></pre>
+        <p>Use <code>-f</code> to pick another output format, such as <code>nt</code> or <code>jsonld</code>, and <code>-o</code> to write to a file. See the <a href="{{ site.docs }}CLI/">command-line reference</a>.</p>
+      </li>
+    </ol>
+
+    <div class="alternatives">
+      <div>
+        <h3>From Python</h3>
+<pre><code>pip install pysparql-anything</code></pre>
+<pre><code data-lang="python">import pysparql_anything as sa
+engine = sa.SparqlAnything()
+engine.run(query="query.rq", format="ttl")</code></pre>
+        <p>The jar is downloaded on first use. See <a href="https://github.com/SPARQL-Anything/PySPARQL-Anything">PySPARQL Anything</a>.</p>
+      </div>
+      <div>
+        <h3>As a SPARQL endpoint</h3>
+<pre><code>java -jar sparql-anything-server-v{{ v }}.jar</code></pre>
+        <p>Starts a Fuseki server at <code>http://localhost:3000/sparql</code>. Any SPARQL client can send it queries that use <code>SERVICE &lt;x-sparql-anything:…&gt;</code>.</p>
+      </div>
+      <div>
+        <h3>From Java</h3>
+        <p>Use the engine as a library inside Apache Jena. See the <a href="https://github.com/SPARQL-Anything/JavaClientExample">Java client example</a> and the <a href="{{ site.docs }}">documentation</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>

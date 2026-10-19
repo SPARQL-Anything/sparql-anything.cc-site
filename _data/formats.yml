@@ -1,0 +1,29 @@
+# Each entry links to its page in the documentation (relative to site.docs).
+- name: CSV and TSV
+  page: formats/CSV/
+- name: JSON
+  page: formats/JSON/
+- name: XML
+  page: formats/XML/
+- name: HTML
+  page: formats/HTML/
+- name: Spreadsheets (XLS, XLSX)
+  page: formats/Spreadsheet/
+- name: Word documents (DOCX)
+  page: formats/Word_Processing_Document/
+- name: Slides (PPTX)
+  page: formats/Slides/
+- name: Markdown
+  page: formats/Markdown/
+- name: YAML
+  page: formats/YAML/
+- name: BibTeX
+  page: formats/Bibtex/
+- name: Plain text
+  page: formats/Text/
+- name: RDF
+  page: formats/RDF/
+- name: Zip, Tar and folders
+  page: formats/Archive/
+- name: Binary files
+  page: formats/Binary/

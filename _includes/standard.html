@@ -1,0 +1,32 @@
+{% assign s = site.spec.url %}
+<section id="standard" class="section section-standard">
+  <div class="wrap standard-grid">
+    <div>
+      <h2>Façade-X as a W3C specification</h2>
+      <p>The <a href="https://www.w3.org/community/facade-x/">W3C Data Façades Community Group</a> is writing Façade-X up as an open specification, so that other engines can implement the same model and give the same answers. SPARQL Anything is the reference implementation.</p>
+      <p>Release {{ site.spec.version }} of the specification was published on 6 October 2026. Anyone can join the group, comment on the drafts or contribute test cases.</p>
+      <div class="actions">
+        <a class="btn btn-light" href="{{ s }}">Read the specification</a>
+        <a class="btn btn-outline" href="https://www.w3.org/community/facade-x/">Join the group</a>
+      </div>
+    </div>
+    <div>
+      <h3>Documents</h3>
+      <ul class="spec-list">
+        <li><a href="{{ s }}primer.html">Primer</a></li>
+        <li><a href="{{ s }}metamodel.html">Concepts and metamodel</a></li>
+        <li><a href="{{ s }}schema.html">Schema vocabulary</a> (<code>fx:</code>)</li>
+        <li><a href="{{ s }}engine.html">Engine vocabulary</a> (<code>fxe:</code>)</li>
+        <li><a href="{{ s }}sparql.html">Data access in SPARQL</a></li>
+        <li><a href="{{ s }}mappings.html">Format mappings</a>: <a href="{{ s }}mapping-csv.html">CSV</a>, <a href="{{ s }}mapping-json.html">JSON</a>, <a href="{{ s }}mapping-xml.html">XML</a></li>
+      </ul>
+      <h3>Group work</h3>
+      <ul class="spec-list">
+        <li><a href="https://github.com/w3c-facade-x/facade-x-specs">Specification sources and issues</a></li>
+        <li><a href="https://github.com/w3c-facade-x/facade-x-tests">Conformance tests</a></li>
+        <li><a href="https://github.com/w3c-facade-x/meetings">Meeting minutes</a></li>
+      </ul>
+      <p class="note">From version 1.3.0, SPARQL Anything follows release {{ site.spec.version }}. The root container is typed <code>fx:Root</code>: queries that match <code>fx:root</code> need updating. Engine options use the Engine vocabulary (<code>fxe:properties fxe:location …</code>); the <code>fx:</code> option forms still work but are deprecated.</p>
+    </div>
+  </div>
+</section>

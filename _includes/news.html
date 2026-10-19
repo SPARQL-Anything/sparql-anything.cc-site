@@ -1,0 +1,10 @@
+<section class="news" aria-labelledby="news-title">
+  <div class="wrap">
+    <h2 id="news-title">What's new</h2>
+    <ul class="news-list">
+      {% for item in site.data.news limit: 6 %}
+      <li><time>{{ item.date }}</time> <a href="{{ item.url }}">{{ item.text }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

@@ -1,13 +1,68 @@
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
+<script>
+(function () {
+  // Format tabs in the hero example. Without JS all three panels show.
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.demo-tabs [role=tab]'));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  function select(i, focus) {
+    tabs.forEach(function (t, j) {
+      var on = i === j;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      panels[j].hidden = !on;
+    });
+    if (focus) tabs[i].focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      var n = tabs.length;
+      if (e.key === 'ArrowRight') { e.preventDefault(); select((i + 1) % n, true); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); select((i - 1 + n) % n, true); }
+      if (e.key === 'Home') { e.preventDefault(); select(0, true); }
+      if (e.key === 'End') { e.preventDefault(); select(n - 1, true); }
+    });
+  });
+  if (tabs.length) { document.documentElement.classList.add('js'); select(0); }
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+  // Mobile menu.
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !open);
+      nav.classList.toggle('open', !open);
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { toggle.setAttribute('aria-expanded', 'false'); nav.classList.remove('open'); }
+    });
+  }
 
-<!-- Plugin JavaScript -->
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.fittext.js"></script>
-<script src="js/wow.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="js/creative.js"></script>
+  // Light syntax colouring for Turtle and SPARQL snippets.
+  var rules = [
+    ['str', /"(?:[^"\\]|\\.)*"/y],
+    ['iri', /<[^<>\s]*>/y],
+    ['kw', /\b(?:PREFIX|CONSTRUCT|SELECT|WHERE|SERVICE|BIND|AS|IRI|CONCAT|FILTER|OPTIONAL)\b|\ba\b(?=\s)/y],
+    ['var', /\?\w+/y],
+    ['pn', /[A-Za-z][\w-]*:(?:[\w.-]*\w)?/y]
+  ];
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  document.querySelectorAll('code[data-lang=turtle], code[data-lang=sparql]').forEach(function (el) {
+    var src = el.textContent, out = '', i = 0, plain = '';
+    while (i < src.length) {
+      var hit = null;
+      for (var r = 0; r < rules.length && !hit; r++) {
+        rules[r][1].lastIndex = i;
+        var m = rules[r][1].exec(src);
+        if (m && m[0].length) hit = [rules[r][0], m[0]];
+      }
+      if (hit && /[\s\[\(\{;,.^]|^$/.test(src.charAt(i - 1) || '')) {
+        out += esc(plain); plain = '';
+        out += '<span class="t-' + hit[0] + '">' + esc(hit[1]) + '</span>';
+        i += hit[1].length;
+      } else { plain += src.charAt(i); i++; }
+    }
+    el.innerHTML = out + esc(plain);
+  });
+})();
+</script>
